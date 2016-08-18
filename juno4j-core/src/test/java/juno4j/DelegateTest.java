@@ -1,7 +1,6 @@
 package juno4j;
 
 import juno4j.delegation.DelegateList;
-import juno4j.delegation.PeopleAsyncDelegate;
 import juno4j.delegation.PeopleCachingDelegate;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,7 +15,6 @@ public class DelegateTest {
     public void setUp() throws Exception {
         DelegateList delegates = Juno4J.getInstance().getDelegates();
         delegates.add(new PeopleCachingDelegate(1));
-        delegates.add(new PeopleAsyncDelegate(2));
     }
 
     @Test

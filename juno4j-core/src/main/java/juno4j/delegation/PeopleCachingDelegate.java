@@ -16,8 +16,12 @@ public class PeopleCachingDelegate extends ChainableDelegate<PeopleDelegate> imp
 
     @Override
     public List<String> findAll() {
-        System.out.println("Cache: Good \n\n");
-        return Arrays.asList("(C) John Doe", "(C) Elvis Presley");
+        List<String> result = Arrays.asList("(C) John Doe", "(C) Elvis Presley");
+
+        System.out.println("Cache: Good");
+        System.out.println("returning cached result: " + result.toString() + "\n\n");
+
+        return result;
     }
 
     @Override

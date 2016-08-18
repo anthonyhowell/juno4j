@@ -11,21 +11,26 @@ public class DelegateList extends ArrayList<ChainableDelegate> {
 
     public ChainableDelegate delegate(ChainableDelegate d1) {
         sort();
+        Collections.reverse(this);
 
         DelegateList chain = new DelegateList();
         chain.add(d1);
 
         this.stream().filter(d2 -> interfaceMatches(d1, d2)).forEachOrdered(d2 -> chainDelegate(chain, d2));
 
-        Collections.reverse(chain);
+        chain.sort();
+
         return chain.get(0);
     }
 
     private void chainDelegate(DelegateList chain, ChainableDelegate delegate) {
-        ChainableDelegate prev = chain.get(chain.size() - 1);
 
-        if (prev != null) {
-            delegate.setForward(prev);
+        if (chain.size() > 0) {
+            ChainableDelegate prev = chain.get(chain.size() - 1);
+
+            if (prev != null) {
+                delegate.setForward(prev);
+            }
         }
 
         chain.add(delegate);
