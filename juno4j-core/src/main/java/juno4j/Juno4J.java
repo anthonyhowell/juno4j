@@ -19,7 +19,7 @@ public class Juno4J {
 
 
     public PeopleDelegate people() {
-        return (PeopleDelegate) delegates.delegate(new DefaultPeopleDelegate(999));
+        return (PeopleDelegate) delegates.delegateForLastResponder(new DefaultPeopleDelegate(999));
     }
 
 

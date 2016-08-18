@@ -9,7 +9,7 @@ public class DelegateList extends ArrayList<ChainableDelegate> {
         sort((o1, o2) -> o1.compareTo(o2));
     }
 
-    public ChainableDelegate delegate(ChainableDelegate d1) {
+    public ChainableDelegate delegateForLastResponder(ChainableDelegate d1) {
         sort();
         Collections.reverse(this);
 
